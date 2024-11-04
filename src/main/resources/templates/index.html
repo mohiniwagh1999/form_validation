@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+.error{
+color:"red"
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>user form</h2>
+<font color='green'><p th:text="${msg}"/></font><p th:text="${msg}"/>
+<form th:object="${user}" th:action="@{/user}" method="post">
+<table>
+<tr>
+<td>Name:</td>
+<td><input type="text" th:field="*{name}"  /></td>
+<p th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}" />
+</tr>
+
+<tr>
+<td>email:</td>
+<td><input type="text" th:field="*{email}" /></td>
+<p th:if="${#fields.hasErrors('email')}" th:errorclass="error" th:errors="*{email}" />
+</tr>
+
+
+<tr>
+<td>phno:</td>
+<td><input type="number" th:field="*{phno}" /></td>
+</tr>
+
+<tr>
+<td></td>
+<td><input type="submit" value="submit" class="btn btn-primary"/></td>
+</tr>
+
+</table>
+
+</form>
+
+</div> 
+</body>
+</html>
